@@ -8,23 +8,38 @@ public class GameMangerScript : MonoBehaviour
     public GameObject crusor;
     public GameObject grandma;
     public int cookiecount;
+    public int cookieadd;
+    public bool clicks;
 
 
-    // Start is called before the first frame update
+    // Sets Cookiecount to zero while spawning a cookie and playing a sound
     void Start()
     {
+        clicks = false;
         cookiecount = 0;
         Instantiate(Cookie);
         Debug.Log("Press space to increase cookie count");
         GetComponent<AudioSource>().Play();
     }
 
-    // Update is called once per frame
+    // Space will increase Cookie count
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            cookiecount += 1;
+            cookieadd = 1;
+            cookiecount = cookiecount + cookieadd;
         }
+
+        if(cookiecount == 10 && clicks == false)
+        {
+            Debug.Log("You got a Cursor! It begains making additional cookies!");
+            Instantiate(crusor);
+            cookieadd += 1;
+            GetComponent<AudioSource>().Play();
+            clicks = true;
+        }
+
+
     }
 }
