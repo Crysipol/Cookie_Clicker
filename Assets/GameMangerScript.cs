@@ -10,13 +10,15 @@ public class GameMangerScript : MonoBehaviour
     public int cookiecount;
     public int cookieadd;
     public bool clicks;
+    public GameObject explosionPrefab;
 
 
     // Sets Cookiecount to zero while spawning a cookie and playing a sound
     void Start()
     {
         clicks = false;
-        cookiecount = 0;
+        cookieadd = 1;
+        cookiecount = 1;
         Instantiate(Cookie);
         Debug.Log("Press space to increase cookie count");
         GetComponent<AudioSource>().Play();
@@ -27,17 +29,20 @@ public class GameMangerScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            cookieadd = 1;
-            cookiecount = cookiecount + cookieadd;
+            cookiecount = cookieadd + cookiecount;
         }
 
         if(cookiecount == 10 && clicks == false)
         {
             Debug.Log("You got a Cursor! It begains making additional cookies!");
-            Instantiate(crusor);
-            cookieadd += 1;
-            GetComponent<AudioSource>().Play();
+            
+            cookieadd = 2;
             clicks = true;
+            
+            GetComponent<AudioSource>().Play();
+
+            Instantiate(crusor);
+            Instantiate(explosionPrefab);
         }
 
 
