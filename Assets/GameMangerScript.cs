@@ -9,8 +9,9 @@ public class GameMangerScript : MonoBehaviour
     public GameObject grandma;
     public GameObject farm;
     public GameObject explosionPrefab;
-    public ulong cookiecount;
-    public uint cookieadd;
+    public GameObject Fireworks;
+    public int cookiecount;
+    public int cookieadd;
     public bool clicks;
 
 
@@ -19,7 +20,7 @@ public class GameMangerScript : MonoBehaviour
     {
         clicks = false;
         cookieadd = 1;
-        cookiecount = 1;
+        cookiecount = 0;
         Instantiate(Cookie);
         Debug.Log("Press space to increase cookie count");
         GetComponent<AudioSource>().Play();
@@ -32,11 +33,6 @@ public class GameMangerScript : MonoBehaviour
         {
             cookiecount = cookieadd + cookiecount;
         }
-
-        if(cookiecount % 10 = 0 && cookiecount != 0)
-        {
-            cookiecount * 2;
-        }
         
         if(cookiecount == 10 && clicks == false)
         {
@@ -45,24 +41,27 @@ public class GameMangerScript : MonoBehaviour
             GetComponent<AudioSource>().Play();
             Instantiate(crusor);
             Instantiate(explosionPrefab);
+            cookieadd = 2;
         }
         
-        if(cookiecount == 20 && clikcs == true)
+        if(cookiecount == 20 && clicks == true)
         {
             Debug.Log("You got a grandma! She begins making additional cookies!");
             clicks = false;
             GetComponent<AudioSource>().Play();
             Instantiate(grandma);
-            Instantiate(explosionPrefab);
+            Instantiate(Fireworks);
+            cookieadd = 4;
         }
         
-        if(cookiecount == 30 && clicks == false)
+        if(cookiecount >= 30 && clicks == false)
         {
             Debug.Log("You got a cookie farm! It begins producing additional cookies!");
             clicks = true;
             GetComponent<AudioSource>().Play();
             Instantiate(farm);
-            Instantiate(explosionPrefab);
+            Instantiate(Fireworks);
+            cookieadd = 8;
         }
 
     }

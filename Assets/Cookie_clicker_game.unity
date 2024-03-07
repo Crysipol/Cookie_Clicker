@@ -247,11 +247,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Cookie: {fileID: 2816109878555832028, guid: 9a6f4ac0bb5ba48a1aaadac273de47ec, type: 3}
   crusor: {fileID: 113721560320768600, guid: 9469b6eb61c4c4c9f9bafbce2d984c1a, type: 3}
-  grandma: {fileID: 0}
+  grandma: {fileID: 3958078049841549503, guid: 06c1c3982e1f64301a77e99712c00e5c, type: 3}
+  farm: {fileID: 5078877108738936218, guid: 654e3c16d25e045c1b0769fa097491d6, type: 3}
+  explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
+  Fireworks: {fileID: 100002, guid: 180149b1a35449044a27b451e816d2de, type: 3}
   cookiecount: 0
   cookieadd: 0
   clicks: 0
-  explosionPrefab: {fileID: 100010, guid: 031d08f52af1daa4f929b85221519426, type: 3}
 --- !u!82 &1613235784
 AudioSource:
   m_ObjectHideFlags: 0
